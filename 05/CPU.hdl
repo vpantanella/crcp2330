@@ -39,5 +39,11 @@ CHIP CPU {
         pc[15];          // address of next instruction
 
     PARTS:
-    // Put your code here:
+    And(a=instruction[15], b=instruction[5], out=IsDest);
+    Or(a=isAInstruction, b=isCAndIsDest, out=loadA);
+    Not( in=instruction[15], out=isAInstruction);
+    Mux16(a=instruction, b=??, sel=??, out=??);
+    ARegister(in=??, loud=??, out=outToPC, out=addressM, out=??);
+    PC(in=outTOPC, load=??, in=true reset=reset, out=pc);
+    Reset()
 }

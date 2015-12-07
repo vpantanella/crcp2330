@@ -8,17 +8,17 @@
  * The arrow keys are used to move the line to draw a design. 
  * The 'q' key is used to quit the game.
  */
-class SquareGame {
+class EtchasketchGame {
 
     // The square
-    field Square square;
+    field Etchasketch etchasketch;
 
     // The square's movement direction
     field int direction; // 0=none,1=up,2=down,3=left,4=right
 
     /** Constructs a new Square Game. */
-    constructor SquareGame new() {
-        let square = Square.new(0, 200, 8);
+    constructor EtchasketchGame new() {
+        let etchasketch = Etchasketch.new(0, 200, 8);
         let direction = 0;
 
         return this;
@@ -27,7 +27,7 @@ class SquareGame {
 
     /** Deallocates the object's memory. */
     method void dispose() {
-        do square.dispose();
+        do etchasketch.dispose();
         do Memory.deAlloc(this);
         return;
     }
@@ -79,17 +79,17 @@ class SquareGame {
     /** Moves the square by 2 pixels in the current direction. */
     method void moveSquare() {
         if (direction = 1) {
-            do square.moveUp();
+            do etchasketch.moveUp();
         }
         if (direction = 2) {
-            do square.moveDown();
+            do etchasketch.moveDown();
         }
        
         if (direction = 3) {
-            do square.moveLeft();
+            do etchasketch.moveLeft();
         }
         if (direction = 4) {
-            do square.moveRight();
+            do etchasketch.moveRight();
         }
 
         do Sys.wait(5); // Delays the next movement.

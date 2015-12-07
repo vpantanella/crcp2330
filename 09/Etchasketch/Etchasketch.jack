@@ -8,7 +8,7 @@
  * and a size. It also has methods for drawing, erasing, moving on the 
  * screen, and changing its size.
  */
-class Square {
+class Etchasketch {
 
     // Location on the screen
     field int x, y;
@@ -17,7 +17,7 @@ class Square {
     field int size;
 
     /** Constructs a new square with a given location and size. */
-    constructor Square new(int Ax, int Ay, int Asize) {
+    constructor Etchasketch new(int Ax, int Ay, int Asize) {
         let x = Ax;
         let y = Ay;
         let size = Asize;
