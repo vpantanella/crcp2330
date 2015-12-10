@@ -11,8 +11,7 @@ class Assembler
 	end
 
 	def assemble!
-		hack_instructions = Parser.parse_asm
-		@hack_file << hack_instructions
+		@parser.parse.each { |instruction|	@hack_file << instruction << "\n" }
 	end
 
 	def insntructions_from_file
@@ -48,11 +47,9 @@ unless is_readable?(asm_filename)
 	abort("#{asm_filename} not found or is unreadable.")
 end
 
-File.open(asm_filename, 'r') do |asm_file|
-	File.open(hack_filename(asm_filename, 'w') do |hack_file|
+File.open(asm_filename) do |asm_file|
+	File.open(hack_filename(asm_filename), 'w') do |hack_file|
 		assembler = Assembler.new(asm_file, hack_file)
 		assembler.assemble!
 	end
 end
-
-
