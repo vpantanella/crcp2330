@@ -12,7 +12,7 @@ class Code
  	}
 
  	COMP = {
- 		if command = 0 {
+ 		if command = 1110 {
  			0 => '101010',
  			1 => '111111',
  			-1 => '111010',
@@ -32,7 +32,7 @@ class Code
  			'D&A' => '000000',
  			'D|A' => '010101'
  		}
- 		else command = 1{
+ 		else command = 1111{
  			'M' => '110000',
  			'!M' => '110001',
  			'-M' => '110011',
@@ -63,7 +63,7 @@ class Code
 	end
 
 	def comp(mnemonic)
-		"CCCCCCC"
+		COMP[mnemonic]
 	end
 
 	def jump(mnemonic)

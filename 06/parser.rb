@@ -27,7 +27,7 @@ class Parser
 
 	def assemble_c_command(instruction)
 		command = "111"
-		
+		command << @code.comp(instruction.split('=')[1]) 
 	end
 
 	def command_type(instruction)
