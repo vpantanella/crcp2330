@@ -1,3 +1,5 @@
+require_relative 'code'
+
 class Parser
 
 	def initialize(assembly_instructions)
@@ -26,8 +28,10 @@ class Parser
 	end	
 
 	def assemble_c_command(instruction)
-		command = "111"
-		command << @code.comp(instruction.split('=')[1]) 
+		if command = "111"
+			command << @code.comp(instruction.split('=')[1]) 
+		end
+
 	end
 
 	def command_type(instruction)
